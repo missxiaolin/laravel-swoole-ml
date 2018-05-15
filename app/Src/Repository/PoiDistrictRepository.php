@@ -30,4 +30,9 @@ class PoiDistrictRepository extends BaseRepository implements RepositoryInterfac
     {
         $this->pushCriteria(app(RequestCriteria::class));
     }
+
+    public function findByLevel($level)
+    {
+        return $this->findWhere(['level' => $level]);
+    }
 }

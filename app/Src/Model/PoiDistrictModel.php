@@ -32,4 +32,13 @@ class PoiDistrictModel extends Model
     protected $hidden = [
 
     ];
+
+    /**
+     * 查询子集
+     * @return \yii\db\ActiveQuery
+     */
+    public function children()
+    {
+        return $this->belongsTo(PoiDistrictModel::class, 'oid','parent_oid');
+    }
 }

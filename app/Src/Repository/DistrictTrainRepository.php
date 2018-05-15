@@ -30,4 +30,22 @@ class DistrictTrainRepository extends BaseRepository implements RepositoryInterf
     {
         $this->pushCriteria(app(RequestCriteria::class));
     }
+
+    /**
+     * 保存数据
+     * @param $data
+     * @return mixed
+     */
+    public function setDistrict($data)
+    {
+        $lat = array_get($data, 'lat');
+        $lon = array_get($data, 'lon');
+        $oid = array_get($data, 'oid');
+        $model = DistrictTrainModel::create([
+            'lat' => $lat,
+            'lon' => $lon,
+            'oid' => $oid,
+        ]);
+        return $model;
+    }
 }
