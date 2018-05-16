@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Core\Swoole\Handler;
 
 use App\Core\InstanceTrait;
+use App\Support\Train;
 
 class TestHandler implements HanderInterface
 {
@@ -57,5 +59,14 @@ class TestHandler implements HanderInterface
     public function exception()
     {
         throw new \Exception('测试异常', 400);
+    }
+
+    /**
+     * @desc   计算经纬度所在地区
+     * @author limx
+     */
+    public function predict($lat, $lon)
+    {
+        return Train::getInstance()->predict([$lat, $lon]);
     }
 }
