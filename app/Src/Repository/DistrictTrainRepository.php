@@ -48,4 +48,14 @@ class DistrictTrainRepository extends BaseRepository implements RepositoryInterf
         ]);
         return $model;
     }
+
+    /**
+     * @param int $id
+     * @param int $limit
+     * @return mixed
+     */
+    public function findById($id = 0, $limit = 100)
+    {
+        return $this->model->where('id', '>', $id)->offset(0)->take($limit)->get();
+    }
 }

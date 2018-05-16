@@ -2,24 +2,24 @@
 
 namespace App\Console\Commands\District;
 
+use App\Src\Service\PoiDistrictService;
 use Illuminate\Console\Command;
-use App\Support\Train as TrainRepository;
 
-class Train extends Command
+class Grab extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'district:train:run';
+    protected $signature = 'district:grab:run';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = '经纬度训练测试';
+    protected $description = '经纬度抓取';
 
     /**
      * Create a new command instance.
@@ -38,7 +38,6 @@ class Train extends Command
      */
     public function handle()
     {
-        $res = TrainRepository::getInstance()->predict([39.9223757639, 116.4221191406]);
-        dump($res);
+        PoiDistrictService::getInstance()->crawl();
     }
 }
