@@ -40,7 +40,7 @@ class SwooleSend extends Command
     {
         try {
             $begin_time = microtime(true);
-            dump(TestClient::getInstance()->predict(39.9223757639, 116.4221191406));
+            dump(TestClient::getInstance()->predict(31.212238975102277, 121.42642908996584));
             $end_time = microtime(true);
             dump('swoole 处理时间为:' . ($end_time - $begin_time));
         } catch (\Exception $e) {
